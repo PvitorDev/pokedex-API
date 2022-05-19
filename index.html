@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokedex</title>
+  <link rel="stylesheet" href="style/styles.css">
+  <link rel="shortcut icon" href="img/pokemon_moltres_icon-icons.com_67518.ico">
+  <script src="https://kit.fontawesome.com/67bbd75c4c.js" crossorigin="anonymous"></script>
+
+</head>
+<!--Arte não foi feita por mim, apenas a adaptei para o meu uso.-->
+<!--Art was not made by me, I just adapted it for my use.-->
+<body style="background-image: url('img/pokemon_wallpaper01_1680.jpg');">
+
+    <!--Pokedex-->
+    <div id="pokedex">
+      <div class="media">
+        <ul>
+          <li><a onclick="initSound()"><i class="fab fa-solid fa-play"></i></a></li>
+          <li><a href="https://github.com/PvitorDev" target="blank"><i class="fab fa-github"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/pvdev/" target="blank"><i class="fab fa-linkedin-in"></i></a></li>
+          <li><a href="https://www.instagram.com/pvitor_dev/" target="blank"><i class="fab fa-instagram"></i></a></li>
+          <li><a onclick="openModal()"><i class="fab fa-solid fa-circle-info"></i></a></li>
+        </ul>
+      </div>
+      <div class="poke"> 
+      <div id="left">
+        <div id="logo"></div>
+        <div id="bg_curve1_left"></div>
+        <div id="bg_curve2_left"></div>
+        <div id="curve1_left">
+          <div class="btnLight" id="buttonGlass">
+            <div id="reflect"> </div>
+          </div>
+
+          <div class="btnLight" id="miniButtonGlass1"></div>
+          <div class="btnLight" id="miniButtonGlass2"></div>
+          <div class="btnLight" id="miniButtonGlass3"></div>
+        </div>
+
+        <div id="curve2_left">
+          <div id="junction">
+            <div id="junction1"></div>
+            <div id="junction2"></div>
+          </div>
+
+        </div>
+
+        <div id="screen">
+
+          <div id="topPicture">
+            <div id="buttontopPicture1"></div>
+            <div id="buttontopPicture2"></div>
+
+          </div>
+
+          <div id="picture" class="pic" style="background-image: url(img/wall.jpg);">
+         
+          </div>
+
+          <div onclick="toggleShiny()" class="buttonbottomPicture"></div>
+          <div id="speakers">
+            <div class="sp"></div>
+            <div class="sp"></div>
+            <div class="sp"></div>
+            <div class="sp"></div>
+          </div>
+
+        </div>
+        <div onclick="sound()" class="btnLight" id="bigbluebutton"><i class="fa-solid fa-volume-high"></i></div>
+        <div class="btnLight" id="barbutton1"></div>
+        <div class="btnLight" id="barbutton2"></div>
+        <div id="cross">
+
+          <div onclick="togglePosition()" id="leftcross">
+            <div id="leftT"></div>
+          </div>
+          <div id="topcross">
+            <div id="upT"></div>
+          </div>
+          <div onclick="togglePosition()"  id="rightcross">
+            <div id="rightT"></div>
+          </div>
+          <div id="midcross">
+            <div id="midCircle"></div>
+          </div>
+          <div id="botcross">
+            <div id="downT"></div>
+          </div>
+        </div>
+      </div>
+      <div id="right">
+        <main class="main">
+          <form class="search">
+            <input type="text" class="search-input" placeholder="Search by pokemon (id/name)">
+            <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </form>
+        </main>
+        <div id="stats">
+
+        </div>
+        <div id="blueButtons1">
+          <div onclick="clickN(1)" class="blueButton">1</div>
+          <div onclick="clickN(2)" class="blueButton">2</div>
+          <div onclick="clickN(3)" class="blueButton">3</div>
+          <div onclick="clickN(4)" class="blueButton">4</div>
+          <div onclick="clickN(5)" class="blueButton">5</div>
+        </div>
+
+        <div id="blueButtons2">
+          <div onclick="clickN(6)" class="blueButton">6</div>
+          <div onclick="clickN(7)" class="blueButton">7</div>
+          <div onclick="clickN(8)" class="blueButton">8</div>
+          <div onclick="clickN(9)" class="blueButton">9</div>
+          <div onclick="clickN(0)" class="blueButton">0</div>
+
+        </div>
+
+        <div class="btnLight" id="miniButtonGlass4"></div>
+        <div class="btnLight" id="miniButtonGlass5"></div>
+        <div onclick="search()" id="barbutton3">ENTER</div>
+        <div onclick="deleteN()"id="barbutton4">DEL</div>
+        <div id="yellowBox1"></div>
+        <div id="yellowBox2"></div>
+        <div id="bg_curve1_right"></div>
+        <div id="bg_curve2_right"></div>
+        <div id="curve1_right"></div>
+        <div id="curve2_right"></div>
+      </div>
+    </div>
+  </div>
+ 
+ 
+    <audio c src="sounds/botão.mp3"></audio> <!--Botão sound-->
+    <script src="src/functions.js"></script>
+    <script src="src/sounds.js"></script>
+    <script src="src/api.js"></script>
+</body>
+
+</html>
