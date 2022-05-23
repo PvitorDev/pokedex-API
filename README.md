@@ -19,7 +19,7 @@
 - Na parte amarela da pokedex, mostra a proxima evolução do pokemon, quando ele está na forma final mostra os antigos
 - Botão vermelho **Play** serve para tocar uma musiquinha 
 - As luzes piscam em um padrão quando a pokedex esta funcionando e em outro quando não está funcionando 
-
+- NOVA ATUALIZAÇÃO 2.0 - AGORA AO CLICAR NA EVOLUÇÃO MUDA AUTOMATICAMENTE 
 ## Observações 
 - Design da pokedex não foi feito por mim, link do Autor https://codepen.io/jrios/pen/OMYzXG
 - Design estático, adaptei para o meu uso! 
