@@ -155,8 +155,8 @@ function sound() {
 
 //Retornar imagem dos evoluídos 
 
-function evolvePic(evoP) {
-  let evolveImg1 = `<img src="${evoP}" alt="Sprite of " height= '110' style= margin-left:15px;>`
+function evolvePic(evoP,evoN) {
+  let evolveImg1 = `<img src="${evoP}" title="${evoN}" height= '110' style= margin-left:15px;>`
   return evolveImg1
 }
 console.log(`

@@ -852,7 +852,7 @@ html {
 		height: 110px;
 		z-index: 1;
 		background-color: #ffff00;
-
+		cursor: pointer;
 		position: absolute;
 		top: 415px;
 		left: 25px;
@@ -873,7 +873,7 @@ html {
 		height: 110px;
 		z-index: 1;
 		background-color: #ffff00;
-
+		cursor: pointer;
 		position: absolute;
 		top: 415px;
 		left: 185px;

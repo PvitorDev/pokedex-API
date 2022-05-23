@@ -17,6 +17,11 @@ const position = {
   back: false,
   shiny: false,
 }
+const evolution = {
+  evo: 'true',
+  evo2: 'false',
+  evo3: 'alse',
+}
 
 let pokemon;
 let idPoke;
@@ -97,31 +102,73 @@ async function envolveTo(id) {
         const capturePoke = evo1.species.name
         const spritesEvo = data.map(s => s.sprites.front_default);
         const namesEvo = data.map(p => p.name)
-
         if (pokemon.name == namesEvo[0]) {
+
           if (spritesEvo[1] === undefined) {
             evolve1.innerHTML = ''
             evolve2.innerHTML = ''
           } else if (spritesEvo[2] === undefined && spritesEvo[1]) {
-            evolve1.innerHTML = evolvePic(spritesEvo[1])
+            evolve1.innerHTML = evolvePic(spritesEvo[1], namesEvo[1])
             evolve2.innerHTML = ''
           } else {
-            evolve1.innerHTML = evolvePic(spritesEvo[1])
-            evolve2.innerHTML = evolvePic(spritesEvo[2])
+            evolve1.innerHTML = evolvePic(spritesEvo[1], namesEvo[1])
+            evolve2.innerHTML = evolvePic(spritesEvo[2], namesEvo[2])
           }
         } else if (pokemon.name === namesEvo[1]) {
-          if (spritesEvo[1] === undefined || spritesEvo[2] === undefined) {
+          if (spritesEvo[1] === undefined) {
             evolve1.innerHTML = ''
             evolve2.innerHTML = ''
           } else if (spritesEvo[2]) {
-            evolve1.innerHTML = evolvePic(spritesEvo[2])
+            evolve1.innerHTML = evolvePic(spritesEvo[2], namesEvo[2])
+            evolve2.innerHTML = ''
+          } else if (spritesEvo[2] === undefined) {
+            evolve1.innerHTML = evolvePic(spritesEvo[0], namesEvo[0])
             evolve2.innerHTML = ''
           }
 
         } else if (pokemon.name === namesEvo[2]) {
-          evolve1.innerHTML = evolvePic(spritesEvo[0])
-          evolve2.innerHTML = evolvePic(spritesEvo[1])
+          evolve1.innerHTML = evolvePic(spritesEvo[0], namesEvo[0])
+          evolve2.innerHTML = evolvePic(spritesEvo[1], namesEvo[1])
         }
+        return data
+      }).then(mapear => {
+        const iEvo = evolve1.innerHTML
+        const iEvo2 = evolve2.innerHTML
+        const clicada = mapear.map(p => p.name)
+        /* clicada.push(mapear.map(p => p.name)) */
+        const pokes = {
+          poke1: clicada[0],
+          poke2: clicada[1],
+          poke3: clicada[2]
+        }
+        if (pokemon.name == pokes.poke1) {
+          evolution.evo = pokes.poke1
+          if (pokes.poke2 !== undefined) {
+            evolution.evo2 = pokes.poke2
+          }
+          if (pokes.poke3 !== undefined) {
+            evolution.evo3 = pokes.poke3
+          }
+          if (pokes.poke3 == undefined) {
+            evolution.evo3 = false
+          }
+        } else if (pokemon.name == pokes.poke2) {
+          evolution.evo = pokes.poke1
+          evolution.evo2 = pokes.poke2
+          if (pokes.poke3 !== undefined) {
+            evolution.evo3 = pokes.poke3
+          }
+          if (pokes.poke3 == undefined) {
+            evolution.evo3 = false
+          }
+        } else if (pokemon.name == pokes.poke3) {
+          evolution.evo = pokes.poke1
+          evolution.evo2 = pokes.poke2
+          evolution.evo3 = pokes.poke3
+
+        }
+       
+
       })
 
   } catch (error) {
@@ -162,7 +209,6 @@ function ViewPokemon(descricao) {
     searchInput.value = pokemon.id
     picture.innerHTML = makePic()
     stats.innerHTML = makeInfo(descricao)
-    console.log(makePic())
   }, 1000)
 
 }
@@ -196,3 +242,27 @@ upCross.addEventListener('click', evt => {
   }
   pokemonSearch(baseUrl, idPoke)
 })
+
+
+
+function onclickEvo1() {
+  if (pokemon.name == evolution.evo) {
+    return pokemonSearch(baseUrl, evolution.evo2)
+  } else if (pokemon.name == evolution.evo2 && evolution.evo3 !== false) {
+    return pokemonSearch(baseUrl, evolution.evo3)
+  } else if (pokemon.name == evolution.evo2 && evolution.evo3 == false) {
+    return pokemonSearch(baseUrl, evolution.evo)
+  } else if (pokemon.name == evolution.evo3) {
+    return pokemonSearch(baseUrl, evolution.evo)
+  }
+}
+
+function onclickEvo2() {
+  if (pokemon.name == evolution.evo) {
+    return pokemonSearch(baseUrl, evolution.evo3)
+  } else if (pokemon.name == evolution.evo2) {
+    return false
+  } else if (pokemon.name == evolution.evo3) {
+    return pokemonSearch(baseUrl, evolution.evo2)
+  }
+}
